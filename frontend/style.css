@@ -1,0 +1,486 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+
+/* HEADER */
+
+.topbar {
+    background: #1769e0;
+    color: white;
+    padding: 25px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.topbar h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+.topbar p {
+    margin: 6px 0 0;
+    opacity: 0.85;
+}
+
+
+.newComplaintBtn {
+    background: white;
+    color: #1769e0;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.newComplaintBtn:hover {
+    background: #eef5ff;
+}
+
+
+/* MAIN */
+
+main {
+    width: 88%;
+    max-width: 1250px;
+    margin: 30px auto;
+}
+
+
+/* DASHBOARD */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+
+.statCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+.statIcon {
+    width: 48px;
+    height: 48px;
+    background: #e8f1ff;
+    color: #1769e0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+
+.pendingIcon {
+    background: #fff3d6;
+}
+
+
+.progressIcon {
+    background: #e7f1ff;
+}
+
+
+.resolvedIcon {
+    background: #e4f8ec;
+}
+
+
+.statCard p {
+    margin: 0 0 5px;
+    color: #777;
+    font-size: 13px;
+}
+
+
+.statCard h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+
+/* CARDS */
+
+.formCard,
+.complaintsSection {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 25px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.sectionHeader h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+
+.sectionHeader p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+
+.cancelButton {
+    padding: 9px 15px;
+    background: #f1f3f5;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+.cancelButton:hover {
+    background: #e2e5e8;
+}
+
+
+/* FORM */
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inputGroup.full {
+    grid-column: 1 / -1;
+}
+
+
+.inputGroup label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+
+.inputGroup input,
+.inputGroup select {
+    padding: 12px;
+    border: 1px solid #d7dce5;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+    border-color: #1769e0;
+}
+
+
+.submitButton {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    background: #1769e0;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.submitButton:hover {
+    background: #1259c0;
+}
+
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+.searchBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #d7dce5;
+    border-radius: 7px;
+    padding: 0 12px;
+}
+
+
+.searchBox input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 11px 5px;
+    font-size: 14px;
+}
+
+
+.filters select {
+    padding: 11px;
+    border: 1px solid #d7dce5;
+    border-radius: 7px;
+    background: white;
+}
+
+
+.refreshButton {
+    padding: 10px 18px;
+    background: #172033;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+/* TABLE */
+
+#complaints {
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+}
+
+
+th {
+    background: #f5f7fa;
+    color: #555;
+    font-size: 13px;
+}
+
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf0f4;
+    text-align: left;
+}
+
+
+td {
+    font-size: 14px;
+}
+
+
+/* STATUS SELECT */
+
+td select {
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+
+/* BADGES */
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* STATUS */
+
+.status-pending {
+    background: #fff3d6;
+    color: #a56b00;
+}
+
+
+.status-progress {
+    background: #e7f1ff;
+    color: #1769e0;
+}
+
+
+.status-resolved {
+    background: #e4f8ec;
+    color: #18864b;
+}
+
+
+/* PRIORITY */
+
+.priority-high {
+    background: #ffe5e5;
+    color: #d32f2f;
+}
+
+
+.priority-medium {
+    background: #fff3d6;
+    color: #a56b00;
+}
+
+
+.priority-low {
+    background: #e4f8ec;
+    color: #18864b;
+}
+
+
+/* BUTTONS */
+
+td button {
+    padding: 7px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    background: #1769e0;
+    color: white;
+    cursor: pointer;
+}
+
+
+td button:last-child {
+    background: #e53935;
+}
+
+
+td button:hover {
+    opacity: 0.85;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+
+    .newComplaintBtn {
+        width: 100%;
+    }
+
+
+    main {
+        width: 94%;
+    }
+
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .inputGroup.full {
+        grid-column: auto;
+    }
+
+
+    .filters {
+        flex-direction: column;
+    }
+
+
+    .searchBox {
+        width: 100%;
+    }
+
+
+    .filters select,
+    .refreshButton {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .topbar h1 {
+        font-size: 23px;
+    }
+
+
+    .formCard,
+    .complaintsSection {
+        padding: 18px;
+    }
+
+}

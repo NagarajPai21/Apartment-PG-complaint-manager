@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <div>
+            <h1>Complaint Manager</h1>
+            <p>Apartment & PG Management System</p>
+        </div>
+
+        <button id="newComplaintButton" class="newComplaintBtn">
+            + New Complaint
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- DASHBOARD -->
+
+        <section class="stats">
+
+            <div class="statCard">
+                <div class="statIcon">📋</div>
+                <div>
+                    <p>Total Complaints</p>
+                    <h2 id="totalCount">0</h2>
+                </div>
+            </div>
+
+            <div class="statCard">
+                <div class="statIcon pendingIcon">⏳</div>
+                <div>
+                    <p>Pending</p>
+                    <h2 id="pendingCount">0</h2>
+                </div>
+            </div>
+
+            <div class="statCard">
+                <div class="statIcon progressIcon">🔧</div>
+                <div>
+                    <p>In Progress</p>
+                    <h2 id="progressCount">0</h2>
+                </div>
+            </div>
+
+            <div class="statCard">
+                <div class="statIcon resolvedIcon">✓</div>
+                <div>
+                    <p>Resolved</p>
+                    <h2 id="resolvedCount">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- COMPLAINT FORM -->
+
+        <section id="formSection" class="formCard hidden">
+
+            <div class="sectionHeader">
+
+                <div>
+                    <h2 id="formTitle">Create Complaint</h2>
+
+                    <p>
+                        Report a new issue or update an existing complaint.
+                    </p>
+                </div>
+
+                <button id="cancelButton" class="cancelButton">
+                    Cancel
+                </button>
+
+            </div>
+
+
+            <form id="complaintForm">
+
+                <div class="formGrid">
+
+                    <div class="inputGroup">
+
+                        <label>Resident Name</label>
+
+                        <input
+                            type="text"
+                            id="residentName"
+                            placeholder="Enter resident name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="inputGroup">
+
+                        <label>Room / Flat Number</label>
+
+                        <input
+                            type="text"
+                            id="roomNumber"
+                            placeholder="Enter room number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="inputGroup">
+
+                        <label>Contact</label>
+
+                        <input
+                            type="text"
+                            id="contact"
+                            placeholder="Enter contact number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="inputGroup">
+
+                        <label>Category</label>
+
+                        <select id="category" required>
+
+                            <option value="">Select category</option>
+
+                            <option value="Electricity">
+                                Electricity
+                            </option>
+
+                            <option value="Plumbing">
+                                Plumbing
+                            </option>
+
+                            <option value="Water Supply">
+                                Water Supply
+                            </option>
+
+                            <option value="Internet">
+                                Internet
+                            </option>
+
+                            <option value="Housekeeping">
+                                Housekeeping
+                            </option>
+
+                            <option value="Maintenance">
+                                Maintenance
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="inputGroup full">
+
+                        <label>Description</label>
+
+                        <input
+                            type="text"
+                            id="description"
+                            placeholder="Describe the issue"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="inputGroup">
+
+                        <label>Priority</label>
+
+                        <select id="priority" required>
+
+                            <option value="">Select priority</option>
+
+                            <option value="Low">Low</option>
+
+                            <option value="Medium">Medium</option>
+
+                            <option value="High">High</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="inputGroup">
+
+                        <label>Date</label>
+
+                        <input
+                            type="date"
+                            id="date"
+                        >
+
+                    </div>
+
+
+                    <div class="inputGroup full">
+
+                        <label>Additional Information</label>
+
+                        <input
+                            type="text"
+                            id="additionalInfo"
+                            placeholder="Optional information"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="submitButton"
+                    class="submitButton">
+
+                    Create Complaint
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- COMPLAINT LIST -->
+
+        <section class="complaintsSection">
+
+            <div class="sectionHeader">
+
+                <div>
+                    <h2>Recent Complaints</h2>
+
+                    <p>
+                        View and manage submitted complaints.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="filters">
+
+                <div class="searchBox">
+
+                    🔍
+
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search complaints..."
+                    >
+
+                </div>
+
+
+                <select id="filterCategory">
+
+                    <option value="">All Categories</option>
+
+                    <option value="Electricity">Electricity</option>
+
+                    <option value="Plumbing">Plumbing</option>
+
+                    <option value="Water Supply">Water Supply</option>
+
+                    <option value="Internet">Internet</option>
+
+                    <option value="Housekeeping">Housekeeping</option>
+
+                    <option value="Maintenance">Maintenance</option>
+
+                    <option value="Other">Other</option>
+
+                </select>
+
+
+                <select id="filterStatus">
+
+                    <option value="">All Statuses</option>
+
+                    <option value="Pending">Pending</option>
+
+                    <option value="In Progress">In Progress</option>
+
+                    <option value="Resolved">Resolved</option>
+
+                </select>
+
+
+                <button
+                    id="getComplaints"
+                    class="refreshButton">
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+            <div id="complaints"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        Complaint Manager • Apartment / PG Management System
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
